@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | Nicoline Thijssen | Somatic Coach</title>
+    <meta name="description" content="Admin dashboard for managing somatic coaching practice">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="admin-body">
+    <!-- Navigation -->
+    <nav class="navbar admin-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1>Admin Dashboard</h1>
+                <p>Practice Management</p>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="admin-dashboard.html" class="nav-link active">Dashboard</a>
+                <a href="admin-calendar.html" class="nav-link">Calendar</a>
+                <a href="admin-bookings.html" class="nav-link">Bookings</a>
+                <a href="admin-clients.html" class="nav-link">Clients</a>
+                <a href="index.html" class="nav-link">View Site</a>
+                <a href="#" class="nav-link logout-btn" id="logout-btn">Logout</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Header -->
+    <section class="dashboard-header">
+        <div class="container">
+            <div class="header-content">
+                <h1>Welcome back, Nicoline</h1>
+                <p id="dashboard-date">Today is <span id="current-date"></span></p>
+            </div>
+            <div class="header-stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="today-sessions">0</span>
+                    <span class="stat-label">Today's Sessions</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="week-revenue">€0</span>
+                    <span class="stat-label">This Week</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="pending-bookings">0</span>
+                    <span class="stat-label">Pending</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="quick-actions-section">
+        <div class="container">
+            <h2>Quick Actions</h2>
+            <div class="actions-grid">
+                <div class="action-card">
+                    <div class="action-icon">📅</div>
+                    <h3>Schedule Management</h3>
+                    <p>View and manage your calendar</p>
+                    <a href="admin-calendar.html" class="btn btn-primary">Manage Calendar</a>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon">👥</div>
+                    <h3>Client Management</h3>
+                    <p>View client profiles and history</p>
+                    <a href="admin-clients.html" class="btn btn-primary">View Clients</a>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon">📊</div>
+                    <h3>Financial Reports</h3>
+                    <p>Revenue and payment analytics</p>
+                    <button class="btn btn-primary" id="view-reports">View Reports</button>
+                </div>
+                <div class="action-card">
+                    <div class="action-icon">✉️</div>
+                    <h3>Client Communication</h3>
+                    <p>Send messages and updates</p>
+                    <button class="btn btn-primary" id="send-message">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Cards -->
+    <section class="overview-section">
+        <div class="container">
+            <div class="overview-grid">
+                <!-- Revenue Overview -->
+                <div class="overview-card">
+                    <h3>Revenue Overview</h3>
+                    <div class="revenue-chart" id="revenue-chart">
+                        <!-- Chart will be rendered here -->
+                        <div class="chart-placeholder">
+                            <div class="chart-bar" style="height: 60%;" data-value="€1,200"></div>
+                            <div class="chart-bar" style="height: 80%;" data-value="€1,600"></div>
+                            <div class="chart-bar" style="height: 45%;" data-value="€900"></div>
+                            <div class="chart-bar" style="height: 90%;" data-value="€1,800"></div>
+                            <div class="chart-bar" style="height: 70%;" data-value="€1,400"></div>
+                            <div class="chart-bar" style="height: 85%;" data-value="€1,700"></div>
+                        </div>
+                        <div class="chart-labels">
+                            <span>Jan</span>
+                            <span>Feb</span>
+                            <span>Mar</span>
+                            <span>Apr</span>
+                            <span>May</span>
+                            <span>Jun</span>
+                        </div>
+                    </div>
+                    <div class="revenue-summary">
+                        <div class="summary-item">
+                            <strong>This Month: €1,700</strong>
+                            <span class="trend positive">+12%</span>
+                        </div>
+                        <div class="summary-item">
+                            <strong>Last Month: €1,400</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Booking Statistics -->
+                <div class="overview-card">
+                    <h3>Booking Statistics</h3>
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <span class="stat-value">24</span>
+                            <span class="stat-desc">Sessions This Month</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-value">8</span>
+                            <span class="stat-desc">New Clients</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-value">96%</span>
+                            <span class="stat-desc">Completion Rate</span>
+                        </div>
+                        <div class="stat-box">
+                            <span class="stat-value">4.9</span>
+                            <span class="stat-desc">Avg Rating</span>
+                        </div>
+                    </div>
+                    <div class="package-breakdown">
+                        <h4>Package Distribution</h4>
+                        <div class="package-bars">
+                            <div class="package-bar">
+                                <span class="package-label">Single Sessions</span>
+                                <div class="bar-container">
+                                    <div class="bar-fill" style="width: 40%;"></div>
+                                    <span class="bar-value">40%</span>
+                                </div>
+                            </div>
+                            <div class="package-bar">
+                                <span class="package-label">3-Session Packages</span>
+                                <div class="bar-container">
+                                    <div class="bar-fill" style="width: 45%;"></div>
+                                    <span class="bar-value">45%</span>
+                                </div>
+                            </div>
+                            <div class="package-bar">
+                                <span class="package-label">6-Session Intensives</span>
+                                <div class="bar-container">
+                                    <div class="bar-fill" style="width: 15%;"></div>
+                                    <span class="bar-value">15%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Activity and Upcoming Sessions -->
+    <section class="activity-section">
+        <div class="container">
+            <div class="activity-grid">
+                <!-- Upcoming Sessions -->
+                <div class="activity-card">
+                    <h3>Upcoming Sessions</h3>
+                    <div class="sessions-list" id="upcoming-sessions">
+                        <!-- Sessions will be populated by JavaScript -->
+                    </div>
+                    <div class="card-footer">
+                        <a href="admin-calendar.html" class="card-link">View Full Calendar</a>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="activity-card">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-list" id="recent-activity">
+                        <!-- Activity will be populated by JavaScript -->
+                    </div>
+                    <div class="card-footer">
+                        <button class="card-link" id="view-all-activity">View All Activity</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Insights -->
+    <section class="insights-section">
+        <div class="container">
+            <div class="insights-grid">
+                <!-- Client Progress -->
+                <div class="insight-card">
+                    <h3>Client Progress Overview</h3>
+                    <div class="progress-items">
+                        <div class="progress-item">
+                            <div class="client-info">
+                                <strong>Sarah M.</strong>
+                                <span>3-Session Package</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 67%;"></div>
+                                <span class="progress-text">2/3 sessions</span>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="client-info">
+                                <strong>Marcus K.</strong>
+                                <span>6-Session Intensive</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 33%;"></div>
+                                <span class="progress-text">2/6 sessions</span>
+                            </div>
+                        </div>
+                        <div class="progress-item">
+                            <div class="client-info">
+                                <strong>Lisa R.</strong>
+                                <span>3-Session Package</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 100%;"></div>
+                                <span class="progress-text">Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Notifications -->
+                <div class="insight-card">
+                    <h3>System Notifications</h3>
+                    <div class="notifications-list">
+                        <div class="notification-item high">
+                            <div class="notification-icon">⚠️</div>
+                            <div class="notification-content">
+                                <strong>Payment Issue</strong>
+                                <p>Failed payment for booking #BK1234</p>
+                                <span class="notification-time">2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="notification-item medium">
+                            <div class="notification-icon">📅</div>
+                            <div class="notification-content">
+                                <strong>Calendar Sync</strong>
+                                <p>Google Calendar synchronized successfully</p>
+                                <span class="notification-time">4 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="notification-item low">
+                            <div class="notification-icon">👤</div>
+                            <div class="notification-content">
+                                <strong>New Client</strong>
+                                <p>Emma D. completed booking</p>
+                                <span class="notification-time">1 day ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats Footer -->
+    <section class="stats-footer">
+        <div class="container">
+            <div class="footer-stats">
+                <div class="footer-stat">
+                    <h4>Total Clients</h4>
+                    <span class="stat-number">127</span>
+                </div>
+                <div class="footer-stat">
+                    <h4>Sessions Completed</h4>
+                    <span class="stat-number">1,243</span>
+                </div>
+                <div class="footer-stat">
+                    <h4>Revenue This Year</h4>
+                    <span class="stat-number">€18,540</span>
+                </div>
+                <div class="footer-stat">
+                    <h4>Average Session Rating</h4>
+                    <span class="stat-number">4.9/5</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Message Modal -->
+    <div class="modal" id="message-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Send Client Message</h3>
+                <button type="button" class="modal-close" id="close-message-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="client-message-form">
+                    <div class="form-group">
+                        <label for="message-recipient">To:</label>
+                        <select id="message-recipient" required>
+                            <option value="">Select Client...</option>
+                            <option value="sarah@example.com">Sarah M. (sarah@example.com)</option>
+                            <option value="marcus@example.com">Marcus K. (marcus@example.com)</option>
+                            <option value="lisa@example.com">Lisa R. (lisa@example.com)</option>
+                            <option value="all-clients">All Active Clients</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-subject">Subject:</label>
+                        <input type="text" id="message-subject" required placeholder="Session reminder, update, etc.">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-body">Message:</label>
+                        <textarea id="message-body" rows="5" required placeholder="Your message content..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="schedule-message">
+                            <span class="checkmark"></span>
+                            Schedule for later
+                        </label>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="button" class="btn btn-secondary" id="cancel-message">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reports Modal -->
+    <div class="modal" id="reports-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Financial Reports</h3>
+                <button type="button" class="modal-close" id="close-reports-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="reports-tabs">
+                    <button class="tab-btn active" data-tab="revenue">Revenue</button>
+                    <button class="tab-btn" data-tab="clients">Clients</button>
+                    <button class="tab-btn" data-tab="packages">Packages</button>
+                </div>
+                <div class="tab-content" id="revenue-tab">
+                    <h4>Revenue Analysis</h4>
+                    <div class="report-summary">
+                        <div class="report-item">
+                            <strong>Total Revenue (YTD)</strong>
+                            <span>€18,540</span>
+                        </div>
+                        <div class="report-item">
+                            <strong>Average Monthly Revenue</strong>
+                            <span>€1,545</span>
+                        </div>
+                        <div class="report-item">
+                            <strong>Best Performing Month</strong>
+                            <span>April (€1,800)</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline" id="export-revenue">Export Revenue Data</button>
+                </div>
+                <div class="tab-content" id="clients-tab" style="display: none;">
+                    <h4>Client Analytics</h4>
+                    <div class="report-summary">
+                        <div class="report-item">
+                            <strong>Total Clients</strong>
+                            <span>127</span>
+                        </div>
+                        <div class="report-item">
+                            <strong>New Clients (This Month)</strong>
+                            <span>8</span>
+                        </div>
+                        <div class="report-item">
+                            <strong>Client Retention Rate</strong>
+                            <span>78%</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline" id="export-clients">Export Client Data</button>
+                </div>
+                <div class="tab-content" id="packages-tab" style="display: none;">
+                    <h4>Package Performance</h4>
+                    <div class="report-summary">
+                        <div class="report-item">
+                            <strong>Most Popular Package</strong>
+                            <span>3-Session Package (45%)</span>
+                        </div>
+                        <div class="report-item">
+                            <strong>Highest Revenue Package</strong>
+                            <span>6-Session Intensive</span>
+                        </div>
+                        <div class="report-item">
+                            <strong>Package Completion Rate</strong>
+                            <span>89%</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline" id="export-packages">Export Package Data</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="admin-footer">
+        <div class="container">
+            <p>&copy; 2024 Nicoline Thijssen Admin Dashboard. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="admin-dashboard.js"></script>
+</body>
+</html>
