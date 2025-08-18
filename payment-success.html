@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful | Nicoline Thijssen | Somatic Coach</title>
+    <meta name="description" content="Your payment has been processed successfully. You will receive booking instructions shortly.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Nicoline Thijssen</a></h1>
+                <p>Somatic Coach</p>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Success Section -->
+    <section class="payment-success-section">
+        <div class="container">
+            <div class="success-content">
+                <div class="success-icon">✅</div>
+                <h1>Payment Successful!</h1>
+                <p class="success-message">Thank you for booking your somatic coaching session with Nicoline.</p>
+                
+                <div class="order-details">
+                    <h3>Order Details</h3>
+                    <div class="order-item">
+                        <span>Package:</span>
+                        <span id="order-package">Loading...</span>
+                    </div>
+                    <div class="order-item">
+                        <span>Amount:</span>
+                        <span id="order-amount">Loading...</span>
+                    </div>
+                    <div class="order-item">
+                        <span>Order ID:</span>
+                        <span id="order-id">Loading...</span>
+                    </div>
+                    <div class="order-item">
+                        <span>Date:</span>
+                        <span id="order-date">Loading...</span>
+                    </div>
+                </div>
+
+                <div class="next-steps">
+                    <h3>What Happens Next?</h3>
+                    <div class="steps-grid">
+                        <div class="step-item">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Confirmation Email</h4>
+                                <p>You'll receive a confirmation email with your receipt within 5 minutes.</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Booking Link</h4>
+                                <p>A personalized booking link will be sent to schedule your session(s).</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Pre-Session Form</h4>
+                                <p>Complete a brief intake form to help prepare for your first session.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-info-box">
+                    <h4>Questions or Need to Reschedule?</h4>
+                    <p>Contact Nicoline directly:</p>
+                    <p>📧 <a href="mailto:hello@nicolinethijssen.nl">hello@nicolinethijssen.nl</a></p>
+                    <p>📞 <a href="tel:+31612345678">+31 6 1234 5678</a></p>
+                </div>
+
+                <div class="action-buttons">
+                    <a href="index.html" class="btn btn-primary">Return Home</a>
+                    <a href="booking.html?token=demo_booking_token" class="btn btn-secondary">Schedule Sessions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="success-testimonial">
+        <div class="container">
+            <div class="testimonial-content">
+                <h3>You're in Good Hands</h3>
+                <blockquote>
+                    "Working with Nicoline has been transformative. Her gentle approach and deep understanding of somatic work created the perfect space for my healing journey."
+                </blockquote>
+                <cite>— Sarah M., Previous Client</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Nicoline Thijssen</h3>
+                    <p>Somatic Coach | The Hague</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="Instagram">Instagram</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Nicoline Thijssen. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Parse URL parameters to show order details
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const packageName = urlParams.get('package') || 'Unknown Package';
+            const amount = urlParams.get('amount') || '0';
+            
+            // Generate mock order ID
+            const orderId = 'NC-' + Date.now().toString().slice(-8);
+            const orderDate = new Date().toLocaleDateString('en-GB', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+            });
+            
+            // Update page content
+            document.getElementById('order-package').textContent = packageName;
+            document.getElementById('order-amount').textContent = '€' + amount;
+            document.getElementById('order-id').textContent = orderId;
+            document.getElementById('order-date').textContent = orderDate;
+            
+            // Send analytics event (would be implemented with actual analytics)
+            console.log('Payment successful event:', { packageName, amount, orderId });
+        });
+    </script>
+</body>
+</html>

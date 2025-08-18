@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Session | Nicoline Thijssen | Somatic Coach</title>
+    <meta name="description" content="Book your somatic coaching session with Nicoline Thijssen. Secure payment processing with Apple Pay, iDEAL, and major credit cards.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1><a href="index.html" style="text-decoration: none; color: inherit;">Nicoline Thijssen</a></h1>
+                <p>Somatic Coach</p>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="#testimonials" class="nav-link">Testimonials</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="payment.html" class="nav-link cta-button active">Book Session</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Payment Hero -->
+    <section class="payment-hero">
+        <div class="container">
+            <div class="section-header">
+                <h1>Book Your Somatic Coaching Session</h1>
+                <p class="section-subtitle">Choose your package and complete secure payment</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Package Selection -->
+    <section class="package-selection">
+        <div class="container">
+            <h2>Choose Your Package</h2>
+            <div class="packages-grid">
+                <div class="package-card" data-package="single" data-price="120" data-currency="eur">
+                    <h3>Single Session</h3>
+                    <div class="package-price">€120</div>
+                    <div class="package-duration">90 minutes</div>
+                    <ul class="package-features">
+                        <li>One-on-one somatic coaching session</li>
+                        <li>Personalized assessment</li>
+                        <li>Trauma-informed approach</li>
+                        <li>In-person or online option</li>
+                        <li>Post-session summary and recommendations</li>
+                    </ul>
+                    <button class="btn btn-secondary package-select">Select Package</button>
+                </div>
+
+                <div class="package-card featured" data-package="three-session" data-price="320" data-currency="eur">
+                    <div class="featured-badge">Most Popular</div>
+                    <h3>3-Session Package</h3>
+                    <div class="package-price">€320 <span class="original-price">€360</span></div>
+                    <div class="package-duration">3 × 90 minutes</div>
+                    <ul class="package-features">
+                        <li>Three comprehensive coaching sessions</li>
+                        <li>Personalized treatment plan</li>
+                        <li>Home practices and exercises</li>
+                        <li>Email support between sessions</li>
+                        <li>Resource materials included</li>
+                        <li>Progress tracking and adjustments</li>
+                    </ul>
+                    <button class="btn btn-primary package-select">Select Package</button>
+                </div>
+
+                <div class="package-card" data-package="six-session" data-price="600" data-currency="eur">
+                    <h3>6-Session Intensive</h3>
+                    <div class="package-price">€600 <span class="original-price">€720</span></div>
+                    <div class="package-duration">6 × 90 minutes</div>
+                    <ul class="package-features">
+                        <li>Comprehensive healing journey</li>
+                        <li>Deep trauma integration work</li>
+                        <li>Weekly sessions for 6 weeks</li>
+                        <li>Ongoing support and guidance</li>
+                        <li>Complete resource library</li>
+                        <li>Integration practices and homework</li>
+                        <li>Final integration session</li>
+                    </ul>
+                    <button class="btn btn-secondary package-select">Select Package</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Form -->
+    <section class="payment-section" id="payment-section" style="display: none;">
+        <div class="container">
+            <div class="payment-container">
+                <div class="payment-summary">
+                    <h3>Order Summary</h3>
+                    <div class="selected-package">
+                        <div class="package-info">
+                            <h4 id="selected-package-name"></h4>
+                            <p id="selected-package-description"></p>
+                        </div>
+                        <div class="package-total">
+                            <span id="selected-package-price"></span>
+                        </div>
+                    </div>
+                    <div class="payment-methods">
+                        <h4>Accepted Payment Methods</h4>
+                        <div class="payment-icons">
+                            <div class="payment-icon">💳 Card</div>
+                            <div class="payment-icon">🍎 Apple Pay</div>
+                            <div class="payment-icon">🇳🇱 iDEAL</div>
+                            <div class="payment-icon">📱 Google Pay</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-form">
+                    <h3>Payment Information</h3>
+                    <form id="payment-form">
+                        <div class="customer-info">
+                            <h4>Contact Information</h4>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="customer-name">Full Name *</label>
+                                    <input type="text" id="customer-name" name="customer-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="customer-email">Email Address *</label>
+                                    <input type="email" id="customer-email" name="customer-email" required>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="customer-phone">Phone Number</label>
+                                    <input type="tel" id="customer-phone" name="customer-phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="session-preference">Session Preference</label>
+                                    <select id="session-preference" name="session-preference">
+                                        <option value="in-person">In-person (The Hague)</option>
+                                        <option value="online">Online (Video Call)</option>
+                                        <option value="flexible">Flexible</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Payment Method Selection -->
+                        <div class="payment-method-selection">
+                            <h4>Choose Payment Method</h4>
+                            <div class="payment-methods-grid">
+                                <button type="button" class="payment-method-btn active" data-method="card">
+                                    💳 Credit/Debit Card
+                                </button>
+                                <button type="button" class="payment-method-btn" data-method="ideal">
+                                    🇳🇱 iDEAL
+                                </button>
+                                <button type="button" class="payment-method-btn" data-method="apple-pay">
+                                    🍎 Apple Pay
+                                </button>
+                                <button type="button" class="payment-method-btn" data-method="google-pay">
+                                    📱 Google Pay
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Stripe Payment Elements -->
+                        <div class="payment-element-container">
+                            <div id="payment-element">
+                                <!-- Stripe Elements will be inserted here -->
+                            </div>
+                        </div>
+
+                        <div class="terms-and-conditions">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="terms-checkbox" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary payment-submit" id="submit-button">
+                            <span>Complete Payment</span>
+                            <div class="spinner" style="display: none;"></div>
+                        </button>
+
+                        <div class="security-info">
+                            <p>🔒 Your payment information is secure and encrypted. We use Stripe for payment processing and do not store your payment details.</p>
+                        </div>
+
+                        <div id="payment-messages" role="alert"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Nicoline Thijssen</h3>
+                    <p>Somatic Coach | The Hague</p>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                    <a href="#" aria-label="Instagram">Instagram</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Nicoline Thijssen. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="payment.js"></script>
+</body>
+</html>
