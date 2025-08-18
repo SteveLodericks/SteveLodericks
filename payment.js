@@ -1,11 +1,16 @@
-// Stripe Payment Integration
-// Note: This requires actual Stripe API keys for production use
-// For demo purposes, we'll simulate the payment flow
+/**
+ * Stripe Payment Integration
+ * SECURITY: Uses configuration from payment-config.js
+ * Secret keys are handled server-side only
+ */
 
-const STRIPE_PUBLISHABLE_KEY = 'pk_test_your_stripe_publishable_key_here'; // Replace with actual key
+// Initialize payment system with secure configuration
 let stripe;
 let elements;
 let selectedPackage = null;
+
+// Get secure configuration
+const paymentConfig = typeof PAYMENT_CONFIG !== 'undefined' ? PAYMENT_CONFIG : null;
 
 // Package configurations
 const packages = {
@@ -32,17 +37,36 @@ const packages = {
     }
 };
 
-// Initialize Stripe (for production, replace with actual key)
+/**
+ * Initialize Stripe with secure configuration
+ * @returns {boolean} Success status
+ */
 function initializeStripe() {
     try {
-        // In production, use actual Stripe key
-        // stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+        if (!paymentConfig || !paymentConfig.stripe.publishableKey) {
+            throw new Error('Payment configuration not found or incomplete');
+        }
+
+        const publishableKey = paymentConfig.stripe.publishableKey;
         
-        // For demo purposes, we'll simulate Stripe functionality
-        console.log('Stripe payment system initialized (demo mode)');
+        // Validate publishable key format
+        if (!publishableKey.startsWith('pk_')) {
+            throw new Error('Invalid Stripe publishable key format');
+        }
+        
+        // Initialize Stripe (only if key is not placeholder)
+        if (!publishableKey.includes('placeholder') && typeof Stripe !== 'undefined') {
+            stripe = Stripe(publishableKey);
+            console.log('Stripe payment system initialized');
+            return true;
+        } else {
+            console.log('Stripe payment system in demo mode');
+            return false;
+        }
     } catch (error) {
         console.error('Error initializing Stripe:', error);
         showPaymentMessage('Payment system unavailable. Please contact us directly.', 'error');
+        return false;
     }
 }
 

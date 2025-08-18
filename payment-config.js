@@ -2,16 +2,16 @@
 // This file contains configuration settings for payment processing
 
 /**
- * Payment Configuration
- * Replace these values with your actual API keys and settings
+ * Client-Side Payment Configuration
+ * SECURITY NOTE: Only client-safe configuration should be stored here.
+ * Secret keys must be stored server-side and accessed via environment variables.
  */
 const PAYMENT_CONFIG = {
-    // Stripe Configuration
+    // Stripe Configuration - Client-side only
     stripe: {
-        // Get these from your Stripe Dashboard
-        publishableKey: 'pk_test_your_stripe_publishable_key_here',
-        secretKey: 'sk_test_your_stripe_secret_key_here', // Server-side only
-        webhookSecret: 'whsec_your_webhook_secret_here',
+        // Only publishable key can be safely stored client-side
+        publishableKey: process.env.STRIPE_PUBLISHABLE_KEY || 'pk_test_placeholder',
+        // REMOVED: secretKey and webhookSecret (must be server-side only)
         
         // Supported payment methods for Dutch market
         paymentMethods: [
@@ -242,29 +242,36 @@ function formatPrice(price, currency = 'EUR') {
 }
 
 /**
- * Validate environment configuration
+ * Validate client-side configuration
  * @returns {Object} Validation results
  */
 function validateConfig() {
     const errors = [];
     const warnings = [];
     
-    // Check required Stripe keys
-    if (!PAYMENT_CONFIG.stripe.publishableKey || PAYMENT_CONFIG.stripe.publishableKey.includes('your_')) {
+    // Check required Stripe publishable key (client-side only)
+    if (!PAYMENT_CONFIG.stripe.publishableKey || 
+        PAYMENT_CONFIG.stripe.publishableKey.includes('placeholder') ||
+        PAYMENT_CONFIG.stripe.publishableKey.includes('your_')) {
         errors.push('Stripe publishable key not configured');
     }
     
-    if (!PAYMENT_CONFIG.stripe.secretKey || PAYMENT_CONFIG.stripe.secretKey.includes('your_')) {
-        errors.push('Stripe secret key not configured');
-    }
-    
-    if (!PAYMENT_CONFIG.stripe.webhookSecret || PAYMENT_CONFIG.stripe.webhookSecret.includes('your_')) {
-        warnings.push('Stripe webhook secret not configured - webhooks will not work');
+    // Validate publishable key format
+    if (PAYMENT_CONFIG.stripe.publishableKey && 
+        !PAYMENT_CONFIG.stripe.publishableKey.startsWith('pk_')) {
+        errors.push('Invalid Stripe publishable key format');
     }
     
     // Check email configuration
-    if (!PAYMENT_CONFIG.email.from.address || PAYMENT_CONFIG.email.from.address.includes('example')) {
+    if (!PAYMENT_CONFIG.email.from.address || 
+        PAYMENT_CONFIG.email.from.address.includes('example')) {
         warnings.push('Email configuration incomplete');
+    }
+    
+    // Check package pricing
+    const packages = Object.values(PAYMENT_CONFIG.packages);
+    if (packages.some(pkg => pkg.price <= 0)) {
+        errors.push('Invalid package pricing detected');
     }
     
     return {

@@ -3,10 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://js.stripe.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.stripe.com;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
+    <!-- SEO Meta Tags -->
     <title>Nicoline Thijssen | Somatic Coach | The Hague</title>
     <meta name="description" content="Professional somatic coaching services in The Hague with Nicoline Thijssen. Transform your relationship with your body through mindful movement and embodied healing.">
     <meta name="keywords" content="somatic coaching, body work, embodied healing, The Hague, movement therapy, trauma healing, nervous system regulation">
+    <meta name="author" content="Nicoline Thijssen">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://nicolinethijssen.nl/">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Nicoline Thijssen | Somatic Coach | The Hague">
+    <meta property="og:description" content="Professional somatic coaching services in The Hague. Transform your relationship with your body through mindful movement and embodied healing.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nicolinethijssen.nl/">
+    <meta property="og:site_name" content="Nicoline Thijssen Somatic Coaching">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nicoline Thijssen | Somatic Coach | The Hague">
+    <meta name="twitter:description" content="Professional somatic coaching services in The Hague. Transform your relationship with your body through mindful movement and embodied healing.">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "HealthAndBeautyBusiness",
+        "name": "Nicoline Thijssen Somatic Coaching",
+        "description": "Professional somatic coaching services specializing in embodied healing and nervous system regulation",
+        "url": "https://nicolinethijssen.nl/",
+        "telephone": "+31-6-1234-5678",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "The Hague",
+            "addressCountry": "NL"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "52.0705",
+            "longitude": "4.3007"
+        },
+        "founder": {
+            "@type": "Person",
+            "name": "Nicoline Thijssen",
+            "jobTitle": "Somatic Coach"
+        },
+        "priceRange": "€120-€600",
+        "paymentAccepted": "Cash, Credit Card, Bank transfer",
+        "openingHours": "Mo-Fr 09:00-18:00"
+    }
+    </script>
+    
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -284,6 +349,22 @@
         </div>
     </footer>
 
+    <!-- Security and Performance Scripts -->
+    <script src="security-utils.js"></script>
+    <script src="performance-utils.js"></script>
     <script src="script.js"></script>
+    
+    <!-- Initialize Security and Performance -->
+    <script>
+        // Initialize security and performance modules
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof SecurityModule !== 'undefined') {
+                SecurityModule.init();
+            }
+            if (typeof PerformanceModule !== 'undefined') {
+                PerformanceModule.init();
+            }
+        });
+    </script>
 </body>
 </html>
