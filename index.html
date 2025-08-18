@@ -69,32 +69,54 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="assets/css/styles-new.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-brand">
                 <h1>Nicoline Thijssen</h1>
                 <p>Somatic Coach</p>
             </div>
             <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#services" class="nav-link">Services</a>
+                <div class="nav-dropdown">
+                    <a href="#services" class="nav-link">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="pages/payment.html" class="dropdown-item">Individual Sessions</a>
+                        <a href="pages/payment.html" class="dropdown-item">3-Session Package</a>
+                        <a href="pages/payment.html" class="dropdown-item">6-Session Intensive</a>
+                        <a href="#services" class="dropdown-item">Group Workshops</a>
+                    </div>
+                </div>
+                <a href="pages/about.html" class="nav-link">About</a>
                 <a href="#testimonials" class="nav-link">Testimonials</a>
                 <a href="#contact" class="nav-link">Contact</a>
-                <a href="payment.html" class="nav-link cta-button">Book Session</a>
+                <a href="pages/payment.html" class="nav-link-cta">Book Session</a>
             </div>
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <button class="mobile-menu-button" id="mobile-menu-button">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="mobile-dropdown">
+                <a href="#services" class="mobile-nav-link mobile-dropdown-toggle">Services</a>
+                <div class="mobile-dropdown-menu">
+                    <a href="pages/payment.html" class="mobile-dropdown-item">Individual Sessions</a>
+                    <a href="pages/payment.html" class="mobile-dropdown-item">3-Session Package</a>
+                    <a href="pages/payment.html" class="mobile-dropdown-item">6-Session Intensive</a>
+                    <a href="#services" class="mobile-dropdown-item">Group Workshops</a>
+                </div>
             </div>
+            <a href="pages/about.html" class="mobile-nav-link">About</a>
+            <a href="#testimonials" class="mobile-nav-link">Testimonials</a>
+            <a href="#contact" class="mobile-nav-link">Contact</a>
+            <a href="pages/payment.html" class="mobile-nav-link mobile-cta">Book Session</a>
         </div>
     </nav>
 
@@ -102,17 +124,18 @@
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">Return to Your Body's Wisdom</h1>
-                <p class="hero-subtitle">Discover healing through somatic awareness and embodied presence with personalized coaching in The Hague</p>
-                <div class="hero-buttons">
-                    <a href="payment.html" class="btn btn-primary">Book Your Session</a>
-                    <a href="#about" class="btn btn-secondary">Learn More</a>
+                <h1 class="hero-title animate-slide-left">Return to Your Body's Wisdom</h1>
+                <p class="hero-subtitle animate-slide-left animate-delay-200">Discover healing through somatic awareness and embodied presence with personalized coaching in The Hague</p>
+                <div class="hero-buttons animate-slide-left animate-delay-400">
+                    <a href="pages/payment.html" class="btn btn-primary hover-lift animate-pulse-glow">Book Your Session</a>
+                    <a href="#about" class="btn btn-secondary hover-scale">Learn More</a>
                 </div>
             </div>
             <div class="hero-image">
-                <div class="image-placeholder">
-                    <p>Professional Photo Placeholder</p>
-                </div>
+                <img src="assets/images/hero/placeholder-hero.svg" 
+                     data-src="assets/images/hero/placeholder-hero.svg"
+                     alt="Nicoline Thijssen - Professional Portrait" 
+                     class="lazy-image hero-image responsive-image animate-slide-right animate-delay-300 hover-scale">
             </div>
         </div>
     </section>
@@ -143,9 +166,10 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <div class="image-placeholder">
-                        <p>Nicoline's Professional Photo</p>
-                    </div>
+                    <img src="assets/images/gallery/placeholder-about.svg" 
+                         data-src="assets/images/gallery/placeholder-about.svg"
+                         alt="Nicoline Thijssen - Somatic Coach" 
+                         class="lazy-image about-image responsive-image">
                 </div>
             </div>
         </div>
@@ -159,8 +183,8 @@
                 <p class="section-subtitle">Personalized approaches to embodied healing</p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
-                    <h3>Individual Sessions</h3>
+                <div class="service-card hover-lift animate-slide-up animate-delay-100">
+                    <h3 class="text-gradient">Individual Sessions</h3>
                     <p class="price">€120 per session</p>
                     <p>One-on-one somatic coaching sessions tailored to your unique needs. Work through trauma, anxiety, and disconnection in a safe, supportive environment.</p>
                     <ul>
@@ -169,12 +193,12 @@
                         <li>Trauma-informed approach</li>
                         <li>In-person or online options</li>
                     </ul>
-                    <a href="payment.html" class="btn btn-primary">Book Session</a>
+                    <a href="pages/payment.html" class="btn btn-primary hover-scale focus-ring">Book Session</a>
                 </div>
                 
-                <div class="service-card featured">
-                    <div class="featured-badge">Most Popular</div>
-                    <h3>3-Session Package</h3>
+                <div class="service-card card-featured hover-lift animate-slide-up animate-delay-200">
+                    <div class="featured-badge animate-bounce">Most Popular</div>
+                    <h3 class="text-gradient">3-Session Package</h3>
                     <p class="price">€320 <span class="original-price">€360</span></p>
                     <p>Dive deeper into your healing journey with this comprehensive package designed for meaningful transformation.</p>
                     <ul>
@@ -183,11 +207,11 @@
                         <li>Email support between sessions</li>
                         <li>Resource materials included</li>
                     </ul>
-                    <a href="payment.html" class="btn btn-primary">Choose Package</a>
+                    <a href="pages/payment.html" class="btn btn-primary hover-scale focus-ring">Choose Package</a>
                 </div>
                 
-                <div class="service-card">
-                    <h3>6-Session Intensive</h3>
+                <div class="service-card hover-lift animate-slide-up animate-delay-300">
+                    <h3 class="text-gradient">6-Session Intensive</h3>
                     <p class="price">€600 <span class="original-price">€720</span></p>
                     <p>A transformative journey for deep, lasting change. Perfect for those ready to commit to significant healing work.</p>
                     <ul>
@@ -196,7 +220,7 @@
                         <li>Ongoing support and guidance</li>
                         <li>Integration practices and resources</li>
                     </ul>
-                    <a href="payment.html" class="btn btn-primary">Start Journey</a>
+                    <a href="pages/payment.html" class="btn btn-primary hover-scale focus-ring">Start Journey</a>
                 </div>
             </div>
             
@@ -272,21 +296,21 @@
                         <p><a href="tel:+31612345678">+31 6 1234 5678</a></p>
                     </div>
                 </div>
-                <div class="contact-form">
+                <div class="contact-form animate-slide-right animate-delay-200">
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" class="form-input focus-ring" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" class="form-input focus-ring" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <textarea id="message" name="message" rows="5" class="form-textarea focus-ring" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+                        <button type="submit" class="btn btn-primary hover-lift focus-ring">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -319,7 +343,7 @@
             </div>
             <div class="booking-cta">
                 <p>Ready to start? The booking system will be integrated in the next development phase.</p>
-                <a href="payment.html" class="btn btn-primary">Choose Your Package</a>
+                <a href="pages/payment.html" class="btn btn-primary">Choose Your Package</a>
             </div>
         </div>
     </section>
@@ -350,9 +374,9 @@
     </footer>
 
     <!-- Security and Performance Scripts -->
-    <script src="security-utils.js"></script>
-    <script src="performance-utils.js"></script>
-    <script src="script.js"></script>
+    <script src="assets/js/security-utils.js"></script>
+    <script src="assets/js/performance-utils.js"></script>
+    <script src="assets/js/script.js"></script>
     
     <!-- Initialize Security and Performance -->
     <script>

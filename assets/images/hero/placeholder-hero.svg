@@ -1,0 +1,19 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f6f7f4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e8ebe3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#heroGradient)"/>
+  <rect x="50" y="50" width="700" height="500" fill="none" stroke="#b4bfa4" stroke-width="2" stroke-dasharray="10,5"/>
+  <text x="400" y="280" font-family="Inter, sans-serif" font-size="24" font-weight="300" text-anchor="middle" fill="#5f6d4f">
+    Professional Portrait
+  </text>
+  <text x="400" y="320" font-family="Inter, sans-serif" font-size="16" text-anchor="middle" fill="#7a8966">
+    Hero Image Placeholder
+  </text>
+  <text x="400" y="350" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="#95a382">
+    800 x 600 pixels
+  </text>
+</svg>

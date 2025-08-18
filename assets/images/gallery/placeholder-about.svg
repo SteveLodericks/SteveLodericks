@@ -1,0 +1,20 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="aboutGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fdfcf8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0ebd9;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#aboutGradient)"/>
+  <circle cx="300" cy="160" r="60" fill="none" stroke="#cab07c" stroke-width="2"/>
+  <circle cx="300" cy="160" r="30" fill="#d7cd9e"/>
+  <text x="300" y="250" font-family="Inter, sans-serif" font-size="18" font-weight="400" text-anchor="middle" fill="#967d4f">
+    Nicoline Thijssen
+  </text>
+  <text x="300" y="280" font-family="Inter, sans-serif" font-size="14" text-anchor="middle" fill="#b29660">
+    Professional Photo
+  </text>
+  <text x="300" y="310" font-family="Inter, sans-serif" font-size="12" text-anchor="middle" fill="#cab07c">
+    600 x 400 pixels
+  </text>
+</svg>

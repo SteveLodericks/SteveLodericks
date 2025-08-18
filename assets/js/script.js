@@ -18,9 +18,10 @@ const NavigationModule = {
      */
     init() {
         try {
-            this.elements.hamburger = document.getElementById('hamburger');
-            this.elements.navMenu = document.getElementById('nav-menu');
-            this.elements.navLinks = document.querySelectorAll('.nav-link');
+            this.elements.hamburger = document.getElementById('mobile-menu-button');
+            this.elements.navMenu = document.getElementById('mobile-menu');
+            this.elements.navbar = document.getElementById('navbar');
+            this.elements.navLinks = document.querySelectorAll('.mobile-nav-link');
 
             if (!this.elements.hamburger || !this.elements.navMenu) {
                 console.warn('Navigation elements not found');
@@ -28,6 +29,7 @@ const NavigationModule = {
             }
 
             this.bindEvents();
+            this.setupScrollBehavior();
         } catch (error) {
             console.error('Error initializing navigation:', error);
         }
@@ -43,6 +45,12 @@ const NavigationModule = {
         // Close mobile menu when clicking on links
         this.elements.navLinks.forEach(link => {
             link.addEventListener('click', this.closeMobileMenu.bind(this));
+        });
+
+        // Mobile dropdown toggle
+        const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+        mobileDropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', this.toggleMobileDropdown.bind(this));
         });
 
         // Close menu on outside click
@@ -73,6 +81,57 @@ const NavigationModule = {
         this.elements.hamburger.classList.remove('active');
         this.elements.navMenu.classList.remove('active');
         this.elements.hamburger.setAttribute('aria-expanded', 'false');
+        
+        // Close any open mobile dropdowns
+        const activeDropdowns = document.querySelectorAll('.mobile-dropdown.active');
+        activeDropdowns.forEach(dropdown => dropdown.classList.remove('active'));
+        
+        const activeToggles = document.querySelectorAll('.mobile-dropdown-toggle.active');
+        activeToggles.forEach(toggle => toggle.classList.remove('active'));
+    },
+
+    /**
+     * Toggle mobile dropdown menu
+     * @param {Event} event - Click event
+     */
+    toggleMobileDropdown(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        const toggle = event.target;
+        const dropdown = toggle.closest('.mobile-dropdown');
+        
+        // Close other dropdowns
+        const otherDropdowns = document.querySelectorAll('.mobile-dropdown.active');
+        otherDropdowns.forEach(d => {
+            if (d !== dropdown) {
+                d.classList.remove('active');
+                d.querySelector('.mobile-dropdown-toggle').classList.remove('active');
+            }
+        });
+        
+        // Toggle current dropdown
+        dropdown.classList.toggle('active');
+        toggle.classList.toggle('active');
+    },
+
+    /**
+     * Setup scroll behavior for navbar styling
+     */
+    setupScrollBehavior() {
+        let lastScrollTop = 0;
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                this.elements.navbar.classList.add('navbar-scrolled');
+            } else {
+                this.elements.navbar.classList.remove('navbar-scrolled');
+            }
+            
+            lastScrollTop = scrollTop;
+        }, { passive: true });
     },
 
     /**
@@ -746,10 +805,243 @@ function showCookieConsent() {
     }
 }
 
+/**
+ * Image Lazy Loading Module - Optimizes image loading for better performance
+ */
+const ImageLazyLoadModule = {
+    observer: null,
+    images: [],
+
+    /**
+     * Initialize lazy loading functionality
+     */
+    init() {
+        try {
+            this.images = document.querySelectorAll('.lazy-image');
+            
+            if (this.images.length === 0) {
+                console.log('No lazy images found');
+                return;
+            }
+
+            // Check if Intersection Observer is supported
+            if ('IntersectionObserver' in window) {
+                this.observer = new IntersectionObserver(
+                    this.handleIntersection.bind(this),
+                    {
+                        rootMargin: '50px 0px',
+                        threshold: 0.1
+                    }
+                );
+
+                this.images.forEach(img => {
+                    this.observer.observe(img);
+                    img.classList.add('lazy-loading');
+                });
+            } else {
+                // Fallback for browsers without Intersection Observer
+                this.loadAllImages();
+            }
+        } catch (error) {
+            console.error('Error initializing lazy loading:', error);
+        }
+    },
+
+    /**
+     * Handle intersection observer callback
+     * @param {Array} entries - Intersection observer entries
+     */
+    handleIntersection(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                this.loadImage(entry.target);
+                this.observer.unobserve(entry.target);
+            }
+        });
+    },
+
+    /**
+     * Load a specific image
+     * @param {HTMLImageElement} img - Image element to load
+     */
+    loadImage(img) {
+        const dataSrc = img.getAttribute('data-src');
+        const dataSrcset = img.getAttribute('data-srcset');
+
+        if (dataSrc) {
+            // Create a new image to preload
+            const imageLoader = new Image();
+            
+            imageLoader.onload = () => {
+                img.src = dataSrc;
+                if (dataSrcset) {
+                    img.srcset = dataSrcset;
+                }
+                img.classList.remove('lazy-loading');
+                img.classList.add('lazy-loaded');
+                
+                // Trigger fade-in animation
+                img.style.opacity = '1';
+            };
+
+            imageLoader.onerror = () => {
+                img.classList.remove('lazy-loading');
+                img.classList.add('lazy-error');
+                console.warn('Failed to load image:', dataSrc);
+            };
+
+            imageLoader.src = dataSrc;
+            if (dataSrcset) {
+                imageLoader.srcset = dataSrcset;
+            }
+        }
+    },
+
+    /**
+     * Fallback: load all images immediately
+     */
+    loadAllImages() {
+        this.images.forEach(img => {
+            this.loadImage(img);
+        });
+    }
+};
+
+/**
+ * Scroll Animation Module - Adds scroll-triggered animations
+ */
+const ScrollAnimationModule = {
+    observer: null,
+    elements: [],
+
+    /**
+     * Initialize scroll animations
+     */
+    init() {
+        try {
+            // Only initialize if animations are supported and not disabled
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                console.log('Animations disabled by user preference');
+                return;
+            }
+
+            this.elements = document.querySelectorAll('[class*="animate-"]');
+            
+            if (this.elements.length === 0) {
+                return;
+            }
+
+            // Use Intersection Observer for scroll-triggered animations
+            this.observer = new IntersectionObserver(
+                this.handleIntersection.bind(this),
+                {
+                    rootMargin: '0px 0px -50px 0px',
+                    threshold: 0.1
+                }
+            );
+
+            this.elements.forEach(el => {
+                // Initially hide animated elements
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                
+                this.observer.observe(el);
+            });
+        } catch (error) {
+            console.error('Error initializing scroll animations:', error);
+        }
+    },
+
+    /**
+     * Handle intersection events
+     * @param {Array} entries - Intersection observer entries
+     */
+    handleIntersection(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                
+                // Trigger animation
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+                
+                // Add subtle stagger for multiple elements
+                const delay = parseInt(element.dataset.animationDelay || '0');
+                if (delay > 0) {
+                    element.style.transitionDelay = `${delay}ms`;
+                }
+                
+                // Stop observing this element
+                this.observer.unobserve(element);
+            }
+        });
+    }
+};
+
+/**
+ * Enhanced UI interactions
+ */
+const UIEnhancementModule = {
+    init() {
+        this.setupButtonEffects();
+        this.setupCardHovers();
+        this.setupFormEnhancements();
+    },
+
+    setupButtonEffects() {
+        const buttons = document.querySelectorAll('.btn, .nav-link-cta');
+        buttons.forEach(button => {
+            button.addEventListener('mouseenter', (e) => {
+                if (!e.target.classList.contains('animate-pulse-glow')) {
+                    e.target.style.transform = 'translateY(-1px)';
+                }
+            });
+            
+            button.addEventListener('mouseleave', (e) => {
+                if (!e.target.classList.contains('animate-pulse-glow')) {
+                    e.target.style.transform = '';
+                }
+            });
+        });
+    },
+
+    setupCardHovers() {
+        const cards = document.querySelectorAll('.card, .service-card, .testimonial-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+                card.style.boxShadow = '0 20px 40px -10px rgba(0, 0, 0, 0.15)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+                card.style.boxShadow = '';
+            });
+        });
+    },
+
+    setupFormEnhancements() {
+        const formInputs = document.querySelectorAll('.form-input, .form-textarea');
+        formInputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.classList.add('form-group-focused');
+            });
+            
+            input.addEventListener('blur', () => {
+                input.parentElement.classList.remove('form-group-focused');
+            });
+        });
+    }
+};
+
 // Initialize all functions
 document.addEventListener('DOMContentLoaded', () => {
     initializeAnalytics();
     showCookieConsent();
+    ImageLazyLoadModule.init();
+    ScrollAnimationModule.init();
+    UIEnhancementModule.init();
 });
 
 // Performance optimization
