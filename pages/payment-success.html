@@ -94,8 +94,8 @@
                 </div>
 
                 <div class="action-buttons">
-                    <a href="index.html" class="btn btn-primary">Return Home</a>
-                    <a href="booking.html?token=demo_booking_token" class="btn btn-secondary">Schedule Sessions</a>
+                    <a href="../index.html" class="btn btn-primary">Return Home</a>
+                    <a href="#" id="schedule-sessions-btn" class="btn btn-secondary">Schedule Sessions</a>
                 </div>
             </div>
         </div>
@@ -139,16 +139,18 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="../assets/js/script.js"></script>
     <script>
         // Parse URL parameters to show order details
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
             const packageName = urlParams.get('package') || 'Unknown Package';
             const amount = urlParams.get('amount') || '0';
+            const bookingToken = urlParams.get('bookingToken');
+            const paymentId = urlParams.get('paymentId');
             
-            // Generate mock order ID
-            const orderId = 'NC-' + Date.now().toString().slice(-8);
+            // Generate mock order ID if no payment ID provided
+            const orderId = paymentId || 'NC-' + Date.now().toString().slice(-8);
             const orderDate = new Date().toLocaleDateString('en-GB', {
                 day: 'numeric',
                 month: 'long',
@@ -161,9 +163,8 @@
             document.getElementById('order-id').textContent = orderId;
             document.getElementById('order-date').textContent = orderDate;
             
-            // Send analytics event (would be implemented with actual analytics)
-            console.log('Payment successful event:', { packageName, amount, orderId });
-        });
-    </script>
+            // Setup booking button with token
+            const scheduleBtn = document.getElementById('schedule-sessions-btn');
+            if (bookingToken && scheduleBtn) {\n                scheduleBtn.href = `booking.html?token=${encodeURIComponent(bookingToken)}`;\n                scheduleBtn.style.display = 'inline-block';\n            } else {\n                // Default fallback booking link\n                scheduleBtn.href = `booking.html?token=demo_booking_token`;\n            }\n            \n            // Send analytics event (would be implemented with actual analytics)\n            console.log('Payment successful event:', { packageName, amount, orderId, bookingToken });\n            \n            // Track conversion event if analytics available\n            if (typeof gtag !== 'undefined') {\n                gtag('event', 'purchase', {\n                    transaction_id: orderId,\n                    value: parseFloat(amount),\n                    currency: 'EUR',\n                    items: [{\n                        item_id: packageName.toLowerCase().replace(/\\s+/g, '-'),\n                        item_name: packageName,\n                        category: 'Coaching Package',\n                        quantity: 1,\n                        price: parseFloat(amount)\n                    }]\n                });\n            }\n        });\n    </script>
 </body>
 </html>

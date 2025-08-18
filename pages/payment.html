@@ -229,7 +229,33 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="payment.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/user-feedback.js"></script>
+    <script src="../assets/js/journey-tracker.js"></script>
+    <script src="../assets/js/payment-config.js"></script>
+    <script src="../assets/js/payment.js"></script>
+    
+    <script>
+        // Integrate with journey tracker
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mark payment step as started
+            if (window.journeyTracker) {
+                window.journeyTracker.currentStep = 'payment';
+                window.journeyTracker.saveJourneyData();
+            }
+        });
+        
+        // Listen for successful payment to complete journey step
+        window.addEventListener('paymentSuccessful', function(e) {
+            if (window.journeyTracker) {
+                window.journeyTracker.completeCurrentStep({
+                    packageSelected: e.detail.package,
+                    amount: e.detail.amount,
+                    paymentId: e.detail.paymentId,
+                    bookingToken: e.detail.bookingToken
+                });
+            }
+        });
+    </script>
 </body>
 </html>

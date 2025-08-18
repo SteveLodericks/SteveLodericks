@@ -295,7 +295,21 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="booking.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/user-feedback.js"></script>
+    <script src="../assets/js/journey-tracker.js"></script>
+    <script src="../assets/js/calendar-integration.js"></script>
+    <script src="../assets/js/booking.js"></script>
+    
+    <script>
+        // Integrate with journey tracker
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mark booking step as started
+            if (window.journeyTracker) {
+                window.journeyTracker.currentStep = 'booking';
+                window.journeyTracker.saveJourneyData();
+            }
+        });
+    </script>
 </body>
 </html>
