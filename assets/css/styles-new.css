@@ -827,7 +827,52 @@ a:hover {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, var(--color-neutral-50) 0%, var(--color-sage-50) 100%);
+  background: linear-gradient(135deg, var(--color-neutral-50) 0%, var(--color-sage-50) 50%, var(--color-sage-100) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add subtle animated background elements */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(180, 191, 164, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(122, 137, 102, 0.1) 0%, transparent 50%);
+  animation: subtleFloat 20s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes subtleFloat {
+  0%, 100% { 
+    transform: translateY(0px) scale(1);
+    opacity: 0.1;
+  }
+  50% { 
+    transform: translateY(-10px) scale(1.05);
+    opacity: 0.15;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero-title,
+  .hero-buttons .btn::before {
+    animation: none;
+  }
+  
+  .hero-image:hover {
+    transform: none;
+  }
+  
+  .hero-buttons .btn {
+    transition: none;
+  }
 }
 
 .hero-container {
@@ -835,44 +880,87 @@ a:hover {
   grid-template-columns: 1fr;
   gap: var(--spacing-12);
   align-items: center;
+  position: relative;
+  z-index: 1;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-6);
 }
 
 @media (min-width: 768px) {
   .hero-container {
     grid-template-columns: 1fr 1fr;
     gap: var(--spacing-16);
+    padding: 0 var(--spacing-8);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-container {
+    gap: var(--spacing-20);
+    padding: 0 var(--spacing-12);
   }
 }
 
 .hero-content {
   text-align: center;
+  padding: var(--spacing-8) 0;
+  position: relative;
+}
+
+/* Add subtle text shadow for better readability */
+.hero-content h1,
+.hero-content p {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 @media (min-width: 768px) {
   .hero-content {
     text-align: left;
+    padding: var(--spacing-12) 0;
   }
 }
 
 .hero-title {
-  font-size: 3rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   font-family: var(--font-secondary);
   color: var(--color-neutral-900);
   margin-bottom: var(--spacing-6);
   line-height: 1.1;
+  font-weight: var(--font-weight-normal);
+  letter-spacing: var(--letter-spacing-tight);
+  background: linear-gradient(135deg, var(--color-neutral-900) 0%, var(--color-sage-800) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 @media (min-width: 768px) {
   .hero-title {
-    font-size: 3.5rem;
+    font-size: clamp(3rem, 6vw, 4.5rem);
   }
 }
 
 .hero-subtitle {
-  font-size: 1.125rem;
-  color: var(--color-neutral-600);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  color: var(--color-sage-700);
   margin-bottom: var(--spacing-8);
   line-height: 1.6;
+  font-weight: var(--font-weight-normal);
+  max-width: 600px;
+}
+
+@media (min-width: 768px) {
+  .hero-subtitle {
+    max-width: none;
+  }
 }
 
 .hero-buttons {
@@ -880,12 +968,40 @@ a:hover {
   flex-direction: column;
   gap: var(--spacing-4);
   align-items: center;
+  margin-top: var(--spacing-8);
+}
+
+.hero-buttons .btn {
+  min-width: 200px;
+  padding: var(--spacing-4) var(--spacing-8);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  border-radius: 50px;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-buttons .btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.6s;
+}
+
+.hero-buttons .btn:hover::before {
+  left: 100%;
 }
 
 @media (min-width: 640px) {
   .hero-buttons {
     flex-direction: row;
     justify-content: center;
+    gap: var(--spacing-6);
   }
 }
 
@@ -1157,6 +1273,84 @@ a:hover {
   max-width: 600px;
   border-radius: 24px;
   box-shadow: var(--shadow-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(180, 191, 164, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  border-radius: 24px;
+}
+
+.hero-image:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+}
+
+.hero-image-img {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  border-radius: 24px;
+  box-shadow: var(--shadow-xl);
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+/* Hero Image Fallback */
+.hero-image-fallback {
+  width: 100%;
+  max-width: 600px;
+  height: 450px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--color-sage-50) 0%, var(--color-sage-100) 100%);
+  border: 2px solid var(--color-sage-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-xl);
+}
+
+.fallback-content {
+  text-align: center;
+  padding: var(--spacing-8);
+}
+
+.fallback-content h3 {
+  font-family: var(--font-secondary);
+  font-size: var(--font-size-3xl);
+  color: var(--color-sage-700);
+  margin-bottom: var(--spacing-4);
+  font-weight: var(--font-weight-normal);
+}
+
+.fallback-content p {
+  font-family: var(--font-primary);
+  color: var(--color-sage-600);
+  margin-bottom: var(--spacing-2);
+  font-size: var(--font-size-lg);
+}
+
+/* Performance optimizations */
+.hero-image-img {
+  /* Enable hardware acceleration */
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Preload critical hero image */
+.hero-image-img[loading="eager"] {
+  content-visibility: auto;
+  contain-intrinsic-size: 800px 600px;
 }
 
 .about-image {

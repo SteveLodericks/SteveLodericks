@@ -73,6 +73,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Preload critical hero image -->
+    <link rel="preload" href="assets/images/hero/placeholder-hero.svg" as="image" type="image/svg+xml" fetchpriority="high">
 </head>
 <body>
     <!-- Navigation -->
@@ -121,21 +124,33 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section id="home" class="hero" role="banner" aria-label="Hero section featuring Nicoline Thijssen somatic coaching services">
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title animate-slide-left">Return to Your Body's Wisdom</h1>
-                <p class="hero-subtitle animate-slide-left animate-delay-200">Discover healing through somatic awareness and embodied presence with personalized coaching in The Hague</p>
-                <div class="hero-buttons animate-slide-left animate-delay-400">
-                    <a href="pages/payment.html" class="btn btn-primary hover-lift animate-pulse-glow">Book Your Session</a>
-                    <a href="#about" class="btn btn-secondary hover-scale">Learn More</a>
+                <h1 class="hero-title animate-slide-left" id="hero-heading">Return to Your Body's Wisdom</h1>
+                <p class="hero-subtitle animate-slide-left animate-delay-200" aria-describedby="hero-heading">Discover healing through somatic awareness and embodied presence with personalized coaching in The Hague</p>
+                <div class="hero-buttons animate-slide-left animate-delay-400" role="group" aria-label="Hero section actions">
+                    <a href="pages/payment.html" class="btn btn-primary hover-lift animate-pulse-glow" aria-label="Book a session with Nicoline Thijssen">Book Your Session</a>
+                    <a href="#about" class="btn btn-secondary hover-scale" aria-label="Learn more about somatic coaching services">Learn More</a>
                 </div>
             </div>
             <div class="hero-image">
                 <img src="assets/images/hero/placeholder-hero.svg" 
-                     data-src="assets/images/hero/placeholder-hero.svg"
-                     alt="Nicoline Thijssen - Professional Portrait" 
-                     class="lazy-image hero-image responsive-image animate-slide-right animate-delay-300 hover-scale">
+                     alt="Nicoline Thijssen - Professional Somatic Coach specializing in embodied healing and nervous system regulation in The Hague, Netherlands" 
+                     class="hero-image-img responsive-image animate-slide-right animate-delay-300 hover-scale"
+                     loading="eager"
+                     fetchpriority="high"
+                     width="800"
+                     height="600"
+                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
+                     onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="hero-image-fallback" style="display: none;">
+                    <div class="fallback-content">
+                        <h3>Nicoline Thijssen</h3>
+                        <p>Somatic Coach</p>
+                        <p>The Hague, Netherlands</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
