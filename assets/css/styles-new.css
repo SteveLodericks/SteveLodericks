@@ -2035,6 +2035,49 @@ a:hover {
 }
 
 /* Enhanced CTA Button with Perfect Alignment */
+/* Enhanced Package Selection States */
+.service-card {
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card.selecting {
+  transform: scale(1.02);
+  box-shadow: 0 12px 24px -8px rgba(122, 137, 102, 0.3);
+  border-color: var(--color-sage-500);
+}
+
+.service-card.selected {
+  border: 2px solid var(--color-sage-600);
+  background: linear-gradient(135deg, var(--color-sage-50) 0%, var(--color-white) 100%);
+  transform: scale(1.02);
+}
+
+.service-card.selected::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, var(--color-sage-500), var(--color-sage-600));
+  border-radius: 26px;
+  z-index: -1;
+  animation: selectionGlow 2s ease-in-out infinite;
+}
+
+.service-card.selected .btn {
+  background: var(--color-sage-600);
+  color: var(--color-white);
+  transform: none;
+}
+
+.service-card.selected .btn::after {
+  content: ' ✓';
+  font-weight: bold;
+}
+
 .service-card .btn {
   margin-top: auto;
   align-self: center;
@@ -2046,14 +2089,100 @@ a:hover {
   text-transform: uppercase;
   letter-spacing: var(--letter-spacing-wide);
   border-radius: 12px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Ensure consistent button positioning across all cards */
+.service-card .btn.loading {
+  color: transparent;
+  pointer-events: none;
+}
+
+.service-card .btn.loading::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: spin 1s linear infinite;
+  color: var(--color-white);
+}
+
+/* Selection Animation Keyframes */
+@keyframes selectionGlow {
+  0%, 100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.005);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOutToRight {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+}
+
+/* Success indicator styling */
+.selection-success-indicator {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--color-sage-600);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 10;
+  animation: slideInFromRight 0.5s ease-out;
+  box-shadow: 0 4px 12px rgba(122, 137, 102, 0.3);
+}
+
+/* Hover states for non-selected cards */
+.service-card:not(.selected):hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-sage-300);
+}
+
+.service-card:not(.selected):hover .btn {
+  transform: translateY(-2px);
+}
 .service-card .btn:last-child {
   margin-bottom: 0;
 }

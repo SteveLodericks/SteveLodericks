@@ -17,23 +17,23 @@ const paymentConfig = typeof PAYMENT_CONFIG !== 'undefined' ? PAYMENT_CONFIG : n
 
 // Package configurations
 const packages = {
-    'single': {
-        name: 'Single Session',
-        description: 'One 90-minute somatic coaching session',
+    'single-session': {
+        name: 'Individual Sessions',
+        description: 'One-on-one somatic coaching sessions tailored to your unique needs',
         price: 120,
         currency: 'eur',
         sessions: 1
     },
     'three-session': {
         name: '3-Session Package',
-        description: 'Three comprehensive 90-minute sessions with support',
+        description: 'Dive deeper into your healing journey with this comprehensive package designed for meaningful transformation',
         price: 320,
         currency: 'eur',
         sessions: 3
     },
     'six-session': {
         name: '6-Session Intensive',
-        description: 'Complete healing journey with ongoing support',
+        description: 'A transformative journey for deep, lasting change. Perfect for those ready to commit to significant healing work',
         price: 600,
         currency: 'eur',
         sessions: 6
@@ -765,11 +765,117 @@ function showPaymentMessage(message, type = 'info') {
     }
 }
 
-// Initialize default card payment method
+/**
+ * Auto-load package data from URL parameters or session storage
+ */
+function autoLoadPackageData() {
+    try {
+        // First, try to get package data from PackageDataModule
+        let packageData = null;
+        if (window.PackageDataModule) {
+            packageData = window.PackageDataModule.getSelectedPackage();
+        }
+        
+        // If no data from module, try URL parameters
+        if (!packageData) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const packageId = urlParams.get('package');
+            if (packageId && packages[packageId]) {
+                packageData = {
+                    id: packageId,
+                    name: packages[packageId].name,
+                    price: packages[packageId].price,
+                    currency: packages[packageId].currency,
+                    description: packages[packageId].description
+                };
+            }
+        }
+        
+        // If we have package data, auto-select it
+        if (packageData) {
+            selectPackage(packageData.id, packageData.price);
+            
+            // Show the payment section immediately
+            const paymentSection = document.getElementById('payment-section');
+            if (paymentSection) {
+                paymentSection.style.display = 'block';
+            }
+            
+            console.log('Auto-loaded package:', packageData);
+        } else {
+            // If no specific package, show the package selection section
+            console.log('No package data found, showing package selection');
+        }
+        
+    } catch (error) {
+        console.error('Error auto-loading package data:', error);
+    }
+}
+
+/**
+ * Pre-populate form with user data if available
+ */
+function autoFillUserData() {
+    try {
+        // Check if user data is stored from previous sessions
+        const storedUserData = JSON.parse(localStorage.getItem('userContactInfo') || '{}');
+        
+        if (storedUserData.name) {
+            const nameField = document.getElementById('customer-name');
+            if (nameField) nameField.value = storedUserData.name;
+        }
+        
+        if (storedUserData.email) {
+            const emailField = document.getElementById('customer-email');
+            if (emailField) emailField.value = storedUserData.email;
+        }
+        
+        if (storedUserData.phone) {
+            const phoneField = document.getElementById('customer-phone');
+            if (phoneField) phoneField.value = storedUserData.phone;
+        }
+        
+    } catch (error) {
+        console.error('Error auto-filling user data:', error);
+    }
+}
+
+/**
+ * Save user contact info for future use
+ */
+function saveUserContactInfo() {
+    try {
+        const userInfo = {
+            name: document.getElementById('customer-name')?.value || '',
+            email: document.getElementById('customer-email')?.value || '',
+            phone: document.getElementById('customer-phone')?.value || ''
+        };
+        
+        if (userInfo.name || userInfo.email) {
+            localStorage.setItem('userContactInfo', JSON.stringify(userInfo));
+        }
+    } catch (error) {
+        console.error('Error saving user contact info:', error);
+    }
+}
+
+// Initialize payment page with auto-loading functionality
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize payment system
     setTimeout(() => {
         updatePaymentElements('card');
+        autoLoadPackageData();
+        autoFillUserData();
     }, 100);
+    
+    // Add form submission handler to save user info
+    const paymentForm = document.getElementById('payment-form');
+    if (paymentForm) {
+        paymentForm.addEventListener('submit', function(e) {
+            // Save user info before processing payment
+            saveUserContactInfo();
+        });
+    }
 });
 
 // Export for testing purposes
