@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Your Session | Nicoline Thijssen | Somatic Coach</title>
     <meta name="description" content="Book your somatic coaching session with Nicoline Thijssen. Secure payment processing with Apple Pay, iDEAL, and major credit cards.">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../assets/css/styles-new.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <script src="https://js.stripe.com/v3/"></script>
 </head>
@@ -229,7 +229,33 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="payment.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/user-feedback.js"></script>
+    <script src="../assets/js/journey-tracker.js"></script>
+    <script src="../assets/js/payment-config.js"></script>
+    <script src="../assets/js/payment.js"></script>
+    
+    <script>
+        // Integrate with journey tracker
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mark payment step as started
+            if (window.journeyTracker) {
+                window.journeyTracker.currentStep = 'payment';
+                window.journeyTracker.saveJourneyData();
+            }
+        });
+        
+        // Listen for successful payment to complete journey step
+        window.addEventListener('paymentSuccessful', function(e) {
+            if (window.journeyTracker) {
+                window.journeyTracker.completeCurrentStep({
+                    packageSelected: e.detail.package,
+                    amount: e.detail.amount,
+                    paymentId: e.detail.paymentId,
+                    bookingToken: e.detail.bookingToken
+                });
+            }
+        });
+    </script>
 </body>
 </html>

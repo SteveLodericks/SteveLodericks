@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Your Sessions | Nicoline Thijssen | Somatic Coach</title>
     <meta name="description" content="Schedule your somatic coaching sessions with Nicoline Thijssen. Choose from available time slots and confirm your appointments.">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../assets/css/styles-new.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cardo:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -295,7 +295,21 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
-    <script src="booking.js"></script>
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/user-feedback.js"></script>
+    <script src="../assets/js/journey-tracker.js"></script>
+    <script src="../assets/js/calendar-integration.js"></script>
+    <script src="../assets/js/booking.js"></script>
+    
+    <script>
+        // Integrate with journey tracker
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mark booking step as started
+            if (window.journeyTracker) {
+                window.journeyTracker.currentStep = 'booking';
+                window.journeyTracker.saveJourneyData();
+            }
+        });
+    </script>
 </body>
 </html>
