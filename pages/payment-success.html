@@ -19,7 +19,7 @@
             <div class="nav-menu" id="nav-menu">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="about.html" class="nav-link">About</a>
-                <a href="services.html" class="nav-link">Services</a>
+                <a href="../index.html#services" class="nav-link">Services</a>
                 <a href="#testimonials" class="nav-link">Testimonials</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </div>
@@ -125,7 +125,7 @@
                 <div class="footer-links">
                     <a href="index.html">Home</a>
                     <a href="about.html">About</a>
-                    <a href="services.html">Services</a>
+                    <a href="../index.html#services">Services</a>
                     <a href="contact.html">Contact</a>
                 </div>
                 <div class="footer-social">
@@ -140,8 +140,11 @@
     </footer>
 
     <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/package-selection.js"></script>
+    <script src="../assets/js/payment-success.js"></script>
+    <!-- Order details are now handled by payment-success.js -->
     <script>
-        // Parse URL parameters to show order details
+        // Legacy code - now handled by PaymentSuccessModule
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
             const packageName = urlParams.get('package') || 'Unknown Package';

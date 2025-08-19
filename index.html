@@ -89,16 +89,16 @@
                 <div class="nav-dropdown">
                     <a href="#services" class="nav-link">Services</a>
                     <div class="dropdown-menu">
-                        <a href="pages/payment.html" class="dropdown-item">Individual Sessions</a>
-                        <a href="pages/payment.html" class="dropdown-item">3-Session Package</a>
-                        <a href="pages/payment.html" class="dropdown-item">6-Session Intensive</a>
+                        <a href="#services" class="dropdown-item">Individual Sessions</a>
+                        <a href="#services" class="dropdown-item">3-Session Package</a>
+                        <a href="#services" class="dropdown-item">6-Session Intensive</a>
                         <a href="#services" class="dropdown-item">Group Workshops</a>
                     </div>
                 </div>
                 <a href="pages/about.html" class="nav-link">About</a>
                 <a href="#testimonials" class="nav-link">Testimonials</a>
                 <a href="#contact" class="nav-link">Contact</a>
-                <a href="pages/payment.html" class="nav-link-cta">Book Session</a>
+                <a href="#services" class="nav-link-cta">Book Session</a>
             </div>
             <button class="mobile-menu-button" id="mobile-menu-button">
                 <span class="hamburger-line"></span>
@@ -110,16 +110,16 @@
             <div class="mobile-dropdown">
                 <a href="#services" class="mobile-nav-link mobile-dropdown-toggle">Services</a>
                 <div class="mobile-dropdown-menu">
-                    <a href="pages/payment.html" class="mobile-dropdown-item">Individual Sessions</a>
-                    <a href="pages/payment.html" class="mobile-dropdown-item">3-Session Package</a>
-                    <a href="pages/payment.html" class="mobile-dropdown-item">6-Session Intensive</a>
+                    <a href="#services" class="mobile-dropdown-item">Individual Sessions</a>
+                    <a href="#services" class="mobile-dropdown-item">3-Session Package</a>
+                    <a href="#services" class="mobile-dropdown-item">6-Session Intensive</a>
                     <a href="#services" class="mobile-dropdown-item">Group Workshops</a>
                 </div>
             </div>
             <a href="pages/about.html" class="mobile-nav-link">About</a>
             <a href="#testimonials" class="mobile-nav-link">Testimonials</a>
             <a href="#contact" class="mobile-nav-link">Contact</a>
-            <a href="pages/payment.html" class="mobile-nav-link mobile-cta">Book Session</a>
+            <a href="#services" class="mobile-nav-link mobile-cta">Book Session</a>
         </div>
     </nav>
 
@@ -130,7 +130,7 @@
                 <h1 class="hero-title animate-slide-left" id="hero-heading">Return to Your Body's Wisdom</h1>
                 <p class="hero-subtitle animate-slide-left animate-delay-200" aria-describedby="hero-heading">Discover healing through somatic awareness and embodied presence with personalized coaching in The Hague</p>
                 <div class="hero-buttons animate-slide-left animate-delay-400" role="group" aria-label="Hero section actions">
-                    <a href="pages/payment.html" class="btn btn-primary hover-lift animate-pulse-glow" aria-label="Book a session with Nicoline Thijssen">Book Your Session</a>
+                    <a href="#services" class="btn btn-primary hover-lift animate-pulse-glow" aria-label="Book a session with Nicoline Thijssen">Book Your Session</a>
                     <a href="#about" class="btn btn-secondary hover-scale" aria-label="Learn more about somatic coaching services">Learn More</a>
                 </div>
             </div>
@@ -194,11 +194,11 @@
     <section id="services" class="services">
         <div class="container">
             <div class="section-header">
-                <h2>Services</h2>
-                <p class="section-subtitle">Personalized approaches to embodied healing</p>
+                <h2>Choose Your Package</h2>
+                <p class="section-subtitle">Select the perfect coaching journey for your needs</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card hover-lift animate-slide-up animate-delay-100">
+            <div class="services-grid" role="group" aria-label="Service packages">
+                <div class="service-card hover-lift animate-slide-up animate-delay-100" role="button" tabindex="0" aria-label="Individual Sessions package">
                     <div class="service-card-header">
                         <h3 class="text-gradient">Individual Sessions</h3>
                         <div class="price-container">
@@ -213,10 +213,10 @@
                         <li>Trauma-informed approach</li>
                         <li>In-person or online options</li>
                     </ul>
-                    <a href="pages/payment.html" class="btn btn-primary hover-scale focus-ring">Book Session</a>
+                    <button class="btn btn-primary hover-scale focus-ring package-select-btn" data-package="single-session" data-price="120" data-name="Individual Sessions" data-description="One-on-one somatic coaching sessions tailored to your unique needs. Work through trauma, anxiety, and disconnection in a safe, supportive environment.">Book Session</button>
                 </div>
                 
-                <div class="service-card card-featured hover-lift animate-slide-up animate-delay-200">
+                <div class="service-card card-featured hover-lift animate-slide-up animate-delay-200" role="button" tabindex="0" aria-label="3-Session Package - Most Popular">
                     <div class="featured-badge animate-bounce">Most Popular</div>
                     <div class="service-card-header">
                         <h3 class="text-gradient">3-Session Package</h3>
@@ -232,10 +232,10 @@
                         <li>Email support between sessions</li>
                         <li>Resource materials included</li>
                     </ul>
-                    <a href="pages/payment.html" class="btn btn-primary hover-scale focus-ring">Choose Package</a>
+                    <button class="btn btn-primary hover-scale focus-ring package-select-btn" data-package="three-session" data-price="320" data-name="3-Session Package" data-description="Dive deeper into your healing journey with this comprehensive package designed for meaningful transformation.">Choose Package</button>
                 </div>
                 
-                <div class="service-card hover-lift animate-slide-up animate-delay-300">
+                <div class="service-card hover-lift animate-slide-up animate-delay-300" role="button" tabindex="0" aria-label="6-Session Intensive package">
                     <div class="service-card-header">
                         <h3 class="text-gradient">6-Session Intensive</h3>
                         <div class="price-container">
@@ -250,7 +250,7 @@
                         <li>Ongoing support and guidance</li>
                         <li>Integration practices and resources</li>
                     </ul>
-                    <a href="pages/payment.html" class="btn btn-primary hover-scale focus-ring">Start Journey</a>
+                    <button class="btn btn-primary hover-scale focus-ring package-select-btn" data-package="six-session" data-price="600" data-name="6-Session Intensive" data-description="A transformative journey for deep, lasting change. Perfect for those ready to commit to significant healing work.">Start Journey</button>
                 </div>
             </div>
             
@@ -373,7 +373,7 @@
             </div>
             <div class="booking-cta">
                 <p>Ready to start? The booking system will be integrated in the next development phase.</p>
-                <a href="pages/payment.html" class="btn btn-primary">Choose Your Package</a>
+                <a href="#services" class="btn btn-primary">Choose Your Package</a>
             </div>
         </div>
     </section>
@@ -407,6 +407,7 @@
     <script src="assets/js/security-utils.js"></script>
     <script src="assets/js/performance-utils.js"></script>
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/package-selection.js"></script>
     
     <!-- Initialize Security and Performance -->
     <script>
