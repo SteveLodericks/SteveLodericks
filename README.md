@@ -1,21 +1,66 @@
-<!-- PREMIUM EBOOK DOWNLOAD RIBBON -->
-<div style="background: linear-gradient(135deg, #6f42c1 0%, #8b5cf6 35%, #a855f7 70%, #c084fc 100%); padding: 20px 0; text-align: center; position: relative; overflow: hidden; box-shadow: 0 4px 25px rgba(111, 66, 193, 0.4); border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><circle cx=\"20\" cy=\"20\" r=\"0.8\" fill=\"rgba(255,255,255,0.1)\"/><circle cx=\"80\" cy=\"80\" r=\"0.8\" fill=\"rgba(255,255,255,0.1)\"/><circle cx=\"40\" cy=\"60\" r=\"0.6\" fill=\"rgba(255,255,255,0.08)\"/><circle cx=\"70\" cy=\"30\" r=\"0.5\" fill=\"rgba(255,255,255,0.06)\"/></svg>') repeat; opacity: 0.7;"></div>
+<!-- GIFT EBOOK DOWNLOAD RIBBON - INSPIRED BY NIENKE THURLINGS -->
+<div style="background: linear-gradient(135deg, #6f42c1 0%, #8b5cf6 35%, #a855f7 70%, #c084fc 100%); padding: 25px 0; text-align: center; position: relative; overflow: hidden; box-shadow: 0 6px 30px rgba(111, 66, 193, 0.5); border-bottom: 2px solid rgba(255, 255, 255, 0.15);">
+  
+  <!-- Enhanced decorative background -->
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><circle cx=\"15\" cy=\"25\" r=\"1.2\" fill=\"rgba(255,255,255,0.15)\"/><circle cx=\"85\" cy=\"75\" r=\"1.0\" fill=\"rgba(255,255,255,0.12)\"/><circle cx=\"45\" cy=\"65\" r=\"0.8\" fill=\"rgba(255,255,255,0.1)\"/><circle cx=\"75\" cy=\"35\" r=\"0.6\" fill=\"rgba(255,255,255,0.08)\"/><circle cx=\"25\" cy=\"80\" r=\"1.4\" fill=\"rgba(255,255,255,0.18)\"/><circle cx=\"60\" cy=\"20\" r=\"0.9\" fill=\"rgba(255,255,255,0.11)\"/></svg>') repeat; opacity: 0.8;"></div>
+  
+  <!-- Floating gift elements -->
+  <div style="position: absolute; top: 15px; left: 10%; font-size: 2em; opacity: 0.2; color: white;">🎁</div>
+  <div style="position: absolute; bottom: 10px; right: 12%; font-size: 1.5em; opacity: 0.15; color: white;">✨</div>
+  <div style="position: absolute; top: 50%; left: 5%; font-size: 1.2em; opacity: 0.1; color: white;">💜</div>
+  
   <div style="position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-    <div style="color: white; font-size: 1.8em; font-weight: 800; margin-bottom: 8px; text-shadow: 0 2px 10px rgba(0,0,0,0.3); letter-spacing: -0.3px;">
-      🎁 FREE SOMATIC COACHING GUIDE
+    
+    <!-- Gift ribbon indicator -->
+    <div style="color: rgba(255,255,255,0.9); font-size: 0.9em; font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">
+      🎀 A Gift From Steve 🎀
     </div>
-    <div style="color: rgba(255,255,255,0.95); font-size: 1.05em; margin-bottom: 18px; font-weight: 500; line-height: 1.3; max-width: 550px; margin-left: auto; margin-right: auto;">
-      "5 Essential Body Awareness Techniques for Life Transformation" • 35+ Page Digital Guide
+    
+    <!-- Main title with enhanced styling -->
+    <div style="color: white; font-size: 2.2em; font-weight: 900; margin-bottom: 12px; text-shadow: 0 3px 15px rgba(0,0,0,0.4); letter-spacing: -0.5px; line-height: 1.1;">
+      FREE Somatic Coaching Guide
     </div>
-    <div style="display: inline-flex; align-items: center; background: rgba(255,255,255,0.98); color: #6f42c1; padding: 12px 32px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 1.0em; box-shadow: 0 6px 20px rgba(0,0,0,0.2); border: 2px solid rgba(255,255,255,0.5); cursor: pointer; transition: all 0.3s ease;">
-      <span style="margin-right: 8px; font-size: 1.1em;">📖</span>
-      INSTANT FREE DOWNLOAD
-      <span style="margin-left: 8px; font-size: 1.1em;">→</span>
+    
+    <!-- Subtitle with book details -->
+    <div style="color: rgba(255,255,255,0.95); font-size: 1.15em; margin-bottom: 22px; font-weight: 600; line-height: 1.4; max-width: 580px; margin-left: auto; margin-right: auto;">
+      "Transform Your Life Through Body Awareness"
+      <div style="font-size: 0.85em; margin-top: 5px; opacity: 0.9; font-weight: 500;">
+        Complete Digital Workbook • Evidence-Based Techniques • Step-by-Step Practices
+      </div>
     </div>
-    <div style="color: rgba(255,255,255,0.88); font-size: 0.85em; margin-top: 12px; font-weight: 500;">
-      No email required • Instant access • Evidence-based techniques
+    
+    <!-- Download button with enhanced design -->
+    <div style="display: inline-flex; align-items: center; background: rgba(255,255,255,0.98); color: #6f42c1; padding: 16px 40px; border-radius: 35px; text-decoration: none; font-weight: 800; font-size: 1.1em; box-shadow: 0 8px 25px rgba(0,0,0,0.25); border: 3px solid rgba(255,255,255,0.7); cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden;">
+      
+      <!-- Button shine effect -->
+      <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); transition: all 0.6s ease;"></div>
+      
+      <span style="margin-right: 10px; font-size: 1.3em;">🎁</span>
+      <span>DOWNLOAD YOUR GIFT</span>
+      <span style="margin-left: 10px; font-size: 1.2em;">→</span>
     </div>
+    
+    <!-- Enhanced trust indicators -->
+    <div style="color: rgba(255,255,255,0.9); font-size: 0.9em; margin-top: 15px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 20px;">
+      <div style="display: flex; align-items: center; gap: 5px;">
+        <span style="font-size: 1.1em;">✨</span>
+        <span>No Email Required</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 5px;">
+        <span style="font-size: 1.1em;">⚡</span>
+        <span>Instant Access</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 5px;">
+        <span style="font-size: 1.1em;">🔬</span>
+        <span>Science-Based</span>
+      </div>
+    </div>
+    
+    <!-- Coming soon note -->
+    <div style="color: rgba(255,255,255,0.8); font-size: 0.8em; margin-top: 12px; font-weight: 500; font-style: italic;">
+      *Currently being written with love - will be available soon!
+    </div>
+    
   </div>
 </div>
 
@@ -46,14 +91,6 @@
       Reconnect with your body's wisdom • Transform through embodied awareness • Create lasting, meaningful change
     </div>
     
-    <!-- CTA Button -->
-    <div style="margin-bottom: 60px;">
-      <div style="background: linear-gradient(135deg, #6f42c1 0%, #8b5cf6 50%, #a855f7 100%); color: white; padding: 18px 45px; border-radius: 50px; display: inline-flex; align-items: center; gap: 12px; font-weight: 700; font-size: 1.2em; box-shadow: 0 8px 30px rgba(111, 66, 193, 0.4); border: 3px solid rgba(255, 255, 255, 0.2); cursor: pointer; transition: all 0.3s ease;">
-        <span style="font-size: 1.3em;">🌟</span>
-        <span>Start Your Transformation Journey</span>
-        <span style="font-size: 1.3em;">→</span>
-      </div>
-    </div>
     
     <!-- Trust indicators -->
     <div style="display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; margin: 40px 0;">
@@ -302,11 +339,6 @@
           </div>
         </div>
         
-        <div style="text-align: center; margin-top: 30px;">
-          <div style="background: linear-gradient(135deg, #6f42c1 0%, #8b5cf6 100%); color: white; padding: 15px 40px; border-radius: 50px; display: inline-block; font-weight: 700; cursor: pointer; box-shadow: 0 6px 20px rgba(111, 66, 193, 0.3); font-size: 1.05em; transition: all 0.3s ease;">
-            Start Your Foundation Journey
-          </div>
-        </div>
       </div>
     </div>
 
@@ -355,11 +387,6 @@
           </div>
         </div>
         
-        <div style="text-align: center; margin-top: 30px;">
-          <div style="background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%); color: white; padding: 15px 40px; border-radius: 50px; display: inline-block; font-weight: 700; cursor: pointer; box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4); font-size: 1.05em; transition: all 0.3s ease;">
-            Begin Your Transformation Path
-          </div>
-        </div>
       </div>
     </div>
 
@@ -402,11 +429,6 @@
           </div>
         </div>
         
-        <div style="text-align: center; margin-top: 30px;">
-          <div style="background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%); color: white; padding: 15px 40px; border-radius: 50px; display: inline-block; font-weight: 700; cursor: pointer; box-shadow: 0 6px 20px rgba(168, 85, 247, 0.3); font-size: 1.05em; transition: all 0.3s ease;">
-            Book Professional Consultation
-          </div>
-        </div>
       </div>
     </div>
 
@@ -654,19 +676,6 @@
       I'm here to support you every step of the way. Start with a free 20-minute discovery call to explore how somatic coaching can help you create meaningful transformation.
     </div>
     
-    <!-- Action Buttons -->
-    <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 50px;">
-      <a href="mailto:stevelodericks@gmail.com" style="text-decoration: none;">
-        <div style="background: linear-gradient(135deg, #6f42c1 0%, #8b5cf6 100%); color: white; padding: 18px 35px; border-radius: 50px; font-weight: 700; font-size: 1.1em; box-shadow: 0 8px 25px rgba(111, 66, 193, 0.3); border: 3px solid rgba(255, 255, 255, 0.2); cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 10px;">
-          <span style="font-size: 1.3em;">✉️</span>
-          <span>Send Me an Email</span>
-        </div>
-      </a>
-      <div style="background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%); color: white; padding: 18px 35px; border-radius: 50px; font-weight: 700; font-size: 1.1em; box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3); border: 3px solid rgba(255, 255, 255, 0.2); cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; gap: 10px;">
-        <span style="font-size: 1.3em;">📅</span>
-        <span>Book Discovery Call</span>
-      </div>
-    </div>
     
     <!-- Support Information -->
     <div style="background: linear-gradient(135deg, rgba(248, 250, 252, 0.8) 0%, rgba(241, 245, 249, 0.6) 100%); padding: 30px; border-radius: 15px; border: 1px solid rgba(111, 66, 193, 0.1);">
