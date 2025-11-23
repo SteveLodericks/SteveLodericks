@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" xmlns:v="https://vecta.io/nano">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#faf9ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f3f1ff;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6f42c1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#bgGrad)"/>
+
+  <!-- Career coaching team illustration -->
+  <g transform="translate(200, 150)">
+
+    <!-- Central coach figure -->
+    <g transform="translate(0, -20)">
+      <!-- Head -->
+      <circle cx="0" cy="-30" r="15" fill="url(#accentGrad)"/>
+      <!-- Body -->
+      <path d="M -20 -15 L -15 20 L -10 20 L -5 -5 L 0 -10 L 5 -5 L 10 20 L 15 20 L 20 -15 Z" fill="url(#accentGrad)"/>
+      <!-- Arms in coaching gesture -->
+      <path d="M -15 -5 L -30 10 M 15 -5 L 30 10" stroke="url(#accentGrad)" stroke-width="3" stroke-linecap="round"/>
+    </g>
+
+    <!-- Left client figure -->
+    <g transform="translate(-100, 0)">
+      <!-- Head -->
+      <circle cx="0" cy="-30" r="12" fill="#8b5cf6" opacity="0.8"/>
+      <!-- Body -->
+      <path d="M -16 -18 L -12 15 L -8 15 L -4 -3 L 0 -8 L 4 -3 L 8 15 L 12 15 L 16 -18 Z" fill="#8b5cf6" opacity="0.8"/>
+      <!-- Growth indicator above head -->
+      <path d="M 0 -45 L -5 -50 L -3 -50 L -3 -55 L 3 -55 L 3 -50 L 5 -50 Z" fill="#a855f7"/>
+    </g>
+
+    <!-- Right client figure -->
+    <g transform="translate(100, 0)">
+      <!-- Head -->
+      <circle cx="0" cy="-30" r="12" fill="#a855f7" opacity="0.8"/>
+      <!-- Body -->
+      <path d="M -16 -18 L -12 15 L -8 15 L -4 -3 L 0 -8 L 4 -3 L 8 15 L 12 15 L 16 -18 Z" fill="#a855f7" opacity="0.8"/>
+      <!-- Success indicator above head -->
+      <circle cx="0" cy="-48" r="8" fill="#fbbf24" opacity="0.8"/>
+      <path d="M -4 -48 L -1 -45 L 4 -50" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </g>
+
+    <!-- Career development elements floating around -->
+    <!-- Chart symbol -->
+    <g transform="translate(-70, -80)">
+      <rect x="-8" y="-8" width="3" height="16" fill="#6f42c1" opacity="0.6"/>
+      <rect x="-2" y="-12" width="3" height="20" fill="#8b5cf6" opacity="0.6"/>
+      <rect x="4" y="-5" width="3" height="13" fill="#a855f7" opacity="0.6"/>
+    </g>
+
+    <!-- Briefcase symbol -->
+    <g transform="translate(70, -80)">
+      <rect x="-10" y="-5" width="20" height="15" rx="2" fill="#6f42c1" opacity="0.6"/>
+      <rect x="-7" y="-8" width="14" height="5" rx="1" fill="#6f42c1" opacity="0.6"/>
+      <circle cx="0" cy="5" r="1.5" fill="white" opacity="0.8"/>
+    </g>
+
+    <!-- Target symbol -->
+    <g transform="translate(0, 60)">
+      <circle cx="0" cy="0" r="12" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.6"/>
+      <circle cx="0" cy="0" r="7" fill="none" stroke="#a855f7" stroke-width="2" opacity="0.6"/>
+      <circle cx="0" cy="0" r="3" fill="#6f42c1" opacity="0.6"/>
+    </g>
+
+  </g>
+
+  <!-- Bottom text -->
+  <text x="200" y="280" font-family="Arial, sans-serif" font-size="18" font-weight="600" text-anchor="middle" fill="#4c1d95">
+    Career Coaching Team
+  </text>
+</svg>

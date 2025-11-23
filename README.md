@@ -1,113 +1,112 @@
-<!-- GIFT EBOOK DOWNLOAD RIBBON - INSPIRED BY NIENKE THURLINGS -->
+<!-- CAREER ADVANCEMENT - PROFESSIONAL CAREER COACHING SERVICES -->
 <div style="background: linear-gradient(135deg, #6f42c1 0%, #8b5cf6 35%, #a855f7 70%, #c084fc 100%); padding: 25px 0; text-align: center; position: relative; overflow: hidden; box-shadow: 0 6px 30px rgba(111, 66, 193, 0.5); border-bottom: 2px solid rgba(255, 255, 255, 0.15);">
-  
+
   <!-- Enhanced decorative background -->
   <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><circle cx=\"15\" cy=\"25\" r=\"1.2\" fill=\"rgba(255,255,255,0.15)\"/><circle cx=\"85\" cy=\"75\" r=\"1.0\" fill=\"rgba(255,255,255,0.12)\"/><circle cx=\"45\" cy=\"65\" r=\"0.8\" fill=\"rgba(255,255,255,0.1)\"/><circle cx=\"75\" cy=\"35\" r=\"0.6\" fill=\"rgba(255,255,255,0.08)\"/><circle cx=\"25\" cy=\"80\" r=\"1.4\" fill=\"rgba(255,255,255,0.18)\"/><circle cx=\"60\" cy=\"20\" r=\"0.9\" fill=\"rgba(255,255,255,0.11)\"/></svg>') repeat; opacity: 0.8;"></div>
-  
-  <!-- Floating gift elements -->
-  <div style="position: absolute; top: 15px; left: 10%; font-size: 2em; opacity: 0.2; color: white;">🎁</div>
-  <div style="position: absolute; bottom: 10px; right: 12%; font-size: 1.5em; opacity: 0.15; color: white;">✨</div>
-  <div style="position: absolute; top: 50%; left: 5%; font-size: 1.2em; opacity: 0.1; color: white;">💜</div>
-  
+
+  <!-- Floating career elements -->
+  <div style="position: absolute; top: 15px; left: 10%; font-size: 2em; opacity: 0.2; color: white;">💼</div>
+  <div style="position: absolute; bottom: 10px; right: 12%; font-size: 1.5em; opacity: 0.15; color: white;">📈</div>
+  <div style="position: absolute; top: 50%; left: 5%; font-size: 1.2em; opacity: 0.1; color: white;">🎯</div>
+
   <div style="position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-    
-    <!-- Gift ribbon indicator -->
+
+    <!-- Career ribbon indicator -->
     <div style="color: rgba(255,255,255,0.9); font-size: 0.9em; font-weight: 600; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px;">
-      🎀 A Gift From Steve 🎀
+      🚀 Career Advancement
     </div>
-    
+
     <!-- Main title with enhanced styling -->
     <div style="color: white; font-size: 2.2em; font-weight: 900; margin-bottom: 12px; text-shadow: 0 3px 15px rgba(0,0,0,0.4); letter-spacing: -0.5px; line-height: 1.1;">
-      FREE Somatic Coaching Guide
+      Professional Career Coaching Services
     </div>
-    
-    <!-- Subtitle with book details -->
+
+    <!-- Subtitle with service details -->
     <div style="color: rgba(255,255,255,0.95); font-size: 1.15em; margin-bottom: 22px; font-weight: 600; line-height: 1.4; max-width: 580px; margin-left: auto; margin-right: auto;">
-      "Transform Your Life Through Body Awareness"
+      "Transform Your Professional Life Today"
       <div style="font-size: 0.85em; margin-top: 5px; opacity: 0.9; font-weight: 500;">
-        Complete Digital Workbook • Evidence-Based Techniques • Step-by-Step Practices
+        CV Writing • Interview Preparation • Career Counseling • Professional Development
       </div>
     </div>
-    
-    <!-- Download button with enhanced design -->
+
+    <!-- Get started button with enhanced design -->
     <div style="display: inline-flex; align-items: center; background: rgba(255,255,255,0.98); color: #6f42c1; padding: 16px 40px; border-radius: 35px; text-decoration: none; font-weight: 800; font-size: 1.1em; box-shadow: 0 8px 25px rgba(0,0,0,0.25); border: 3px solid rgba(255,255,255,0.7); cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden;">
-      
+
       <!-- Button shine effect -->
       <div style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); transition: all 0.6s ease;"></div>
-      
-      <span style="margin-right: 10px; font-size: 1.3em;">🎁</span>
-      <span>DOWNLOAD YOUR GIFT</span>
+
+      <span style="margin-right: 10px; font-size: 1.3em;">🚀</span>
+      <span>START YOUR JOURNEY</span>
       <span style="margin-left: 10px; font-size: 1.2em;">→</span>
     </div>
-    
-    <!-- Enhanced trust indicators -->
+
+    <!-- Enhanced service indicators -->
     <div style="color: rgba(255,255,255,0.9); font-size: 0.9em; margin-top: 15px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 20px;">
       <div style="display: flex; align-items: center; gap: 5px;">
         <span style="font-size: 1.1em;">✨</span>
-        <span>No Email Required</span>
+        <span>Expert Coaches</span>
       </div>
       <div style="display: flex; align-items: center; gap: 5px;">
         <span style="font-size: 1.1em;">⚡</span>
-        <span>Instant Access</span>
+        <span>Quick Results</span>
       </div>
       <div style="display: flex; align-items: center; gap: 5px;">
-        <span style="font-size: 1.1em;">🔬</span>
-        <span>Science-Based</span>
+        <span style="font-size: 1.1em;">🎯</span>
+        <span>Proven Success</span>
       </div>
     </div>
-    
-    <!-- Coming soon note -->
+
+    <!-- Available services note -->
     <div style="color: rgba(255,255,255,0.8); font-size: 0.8em; margin-top: 12px; font-weight: 500; font-style: italic;">
-      *Currently being written with love - will be available soon!
+      *Online sessions available worldwide • Serving professionals across all industries
     </div>
-    
+
   </div>
 </div>
 
 <div align="center">
 
-<!-- HERO SECTION INSPIRED BY NIENKE THURLINGS -->
+<!-- HERO SECTION - CAREER ADVANCEMENT -->
 <div style="background: linear-gradient(135deg, #ffffff 0%, #faf9ff 20%, #f3f1ff 40%, #f9f7ff 70%, #ffffff 100%); min-height: 70vh; padding: 80px 30px 60px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-  
+
   <!-- Floating background elements -->
   <div style="position: absolute; top: 10%; left: 5%; width: 120px; height: 120px; background: radial-gradient(circle, rgba(111, 66, 193, 0.08) 0%, transparent 70%); border-radius: 50%; animation: float 6s ease-in-out infinite;"></div>
   <div style="position: absolute; top: 60%; right: 8%; width: 80px; height: 80px; background: radial-gradient(circle, rgba(168, 85, 247, 0.06) 0%, transparent 70%); border-radius: 50%; animation: float 7s ease-in-out infinite reverse;"></div>
   <div style="position: absolute; bottom: 20%; left: 12%; width: 60px; height: 60px; background: radial-gradient(circle, rgba(139, 92, 246, 0.05) 0%, transparent 70%); border-radius: 50%; animation: float 5s ease-in-out infinite;"></div>
-  
+
   <div style="position: relative; z-index: 2; text-align: center; max-width: 900px;">
-    
+
     <!-- Main Heading -->
     <div style="background: linear-gradient(135deg, #6f42c1 0%, #8b5cf6 40%, #a855f7 100%); -webkit-background-clip: text; background-clip: text; color: transparent; font-size: 3.8em; font-weight: 900; margin-bottom: 20px; letter-spacing: -1.5px; line-height: 1.1;">
-      Steve Lodericks
+      Career Advancement
     </div>
-    
+
     <!-- Subtitle -->
     <div style="color: #4c1d95; font-size: 2.1em; font-weight: 600; margin-bottom: 30px; letter-spacing: 0.3px; line-height: 1.3;">
-      Somatic Coach & Body Wisdom Guide
+      Professional Career Coaching & Development
     </div>
-    
+
     <!-- Empowering tagline -->
     <div style="color: #6366f1; font-size: 1.4em; font-weight: 500; margin-bottom: 50px; line-height: 1.4; max-width: 750px; margin-left: auto; margin-right: auto;">
-      Reconnect with your body's wisdom • Transform through embodied awareness • Create lasting, meaningful change
+      Advance your career • Land your dream job • Transform your professional future
     </div>
-    
-    
+
     <!-- Trust indicators -->
     <div style="display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; margin: 40px 0;">
       <div style="background: rgba(255, 255, 255, 0.9); color: #6f42c1; padding: 12px 25px; border-radius: 25px; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(111, 66, 193, 0.15); border: 1px solid rgba(111, 66, 193, 0.1); display: flex; align-items: center; gap: 8px;">
         <span style="font-size: 1.1em;">🏆</span>
-        <span>Certified Somatic Practitioner</span>
+        <span>Expert Career Coaches</span>
       </div>
       <div style="background: rgba(255, 255, 255, 0.9); color: #8b5cf6; padding: 12px 25px; border-radius: 25px; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(139, 92, 246, 0.15); border: 1px solid rgba(139, 92, 246, 0.1); display: flex; align-items: center; gap: 8px;">
-        <span style="font-size: 1.1em;">🌱</span>
-        <span>Trauma-Informed Approach</span>
+        <span style="font-size: 1.1em;">📈</span>
+        <span>Proven Results</span>
       </div>
       <div style="background: rgba(255, 255, 255, 0.9); color: #a855f7; padding: 12px 25px; border-radius: 25px; font-size: 14px; font-weight: 600; box-shadow: 0 4px 15px rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.1); display: flex; align-items: center; gap: 8px;">
-        <span style="font-size: 1.1em;">🧘</span>
-        <span>500+ Training Hours</span>
+        <span style="font-size: 1.1em;">🌍</span>
+        <span>Global Reach</span>
       </div>
     </div>
-    
+
   </div>
 </div>
 

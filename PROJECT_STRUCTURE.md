@@ -1,6 +1,6 @@
-# Project Structure
+# Career Advancement Website - Project Structure
 
-This project follows modern web development best practices with organized directory structure.
+This is a professional career coaching website following modern web development best practices with organized directory structure. The website offers CV writing, interview preparation, and career counseling services.
 
 ## Directory Structure
 
