@@ -1,13 +1,13 @@
 {
-  "name": "repo",
+  "name": "career-advancement",
   "version": "1.0.0",
-  "description": "- 👋 Hi, I’m @SteveLodericks - 👀 I’m interested in solving problems by use of technology  - 🌱 I’m I code in python,C# and Java - 💞️ I’m looking to collaborate on any cool projects - 📫 How to reach me stevelodericks@gmail.com",
+  "description": "Professional career coaching website offering CV writing, interview preparation, and career counseling services. Helping professionals advance their careers with expert guidance and personalized coaching.",
   "main": "admin-calendar.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["career-coaching", "cv-writing", "interview-preparation", "career-development", "professional-development", "job-search", "career-advancement"],
+  "author": "Career Advancement Team",
   "license": "ISC",
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
